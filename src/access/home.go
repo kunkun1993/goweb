@@ -22,7 +22,7 @@ func Index() (*models.Course, error) {
 	}
 
 	list.Close()
-	fmt.Println(course)
+	fmt.Println(fmt.Sprintf("%+v",course))
 	os.Exit(3)
 	return &course, nil
 }
