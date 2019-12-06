@@ -16,9 +16,10 @@ import (
 
 // Index 首页
 func Index(ctx iris.Context) {
-	fmt.Println(ctx)
-	os.Exit(2222)
 	result, err := access.Index()
+
+	fmt.Println(result)
+	os.Exit(1)
 	if err != nil {
 		log.Fatal(err)
 	}
