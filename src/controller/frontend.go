@@ -16,7 +16,8 @@ import (
 func Index(ctx iris.Context) {
 	result, err := access.Index()
 
-	ctx.JSON(result)
+	ctx.Writef(result)
+	return
 	if err != nil {
 		log.Fatal(err)
 	}
