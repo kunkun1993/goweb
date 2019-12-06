@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"fmt"
 	"log"
 	"net/url"
 	"strconv"
@@ -14,6 +15,7 @@ import (
 
 // Index 首页
 func Index(ctx iris.Context) {
+	fmt.Print(ctx)
 	result, err := access.Index()
 	if err != nil {
 		log.Fatal(err)
