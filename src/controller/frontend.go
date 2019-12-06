@@ -16,7 +16,8 @@ import (
 // Index 首页
 func Index(ctx iris.Context) {
 	result, err := access.Index()
-	return fmt.Sprintf("%+v", *result)
+	fmt.Println(result.String())
+	return
 	if err != nil {
 		log.Fatal(err)
 	}
