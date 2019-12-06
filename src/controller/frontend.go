@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/url"
@@ -16,7 +17,8 @@ import (
 // Index 首页
 func Index(ctx iris.Context) {
 	result, err := access.Index()
-	fmt.Println(*result.String())
+	bytes, _ := json.Marshal(result)
+	fmt.Println(string(bytes))
 	return
 	if err != nil {
 		log.Fatal(err)
