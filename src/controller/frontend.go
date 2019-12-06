@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/url"
+	"os"
 	"strconv"
 	"strings"
 
@@ -15,7 +16,8 @@ import (
 
 // Index 首页
 func Index(ctx iris.Context) {
-	fmt.Print(ctx)
+	fmt.Println(ctx)
+	os.Exit(2222)
 	result, err := access.Index()
 	if err != nil {
 		log.Fatal(err)
