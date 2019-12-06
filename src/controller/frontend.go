@@ -1,10 +1,8 @@
 package controller
 
 import (
-	"fmt"
 	"log"
 	"net/url"
-	"os"
 	"strconv"
 	"strings"
 
