@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"fmt"
 	"log"
 	"net/url"
 	"strconv"
@@ -16,7 +17,7 @@ import (
 func Index(ctx iris.Context) {
 	result, err := access.Index()
 
-	ctx.Writef(result)
+	fmt.Printf("%v\n", result)
 	return
 	if err != nil {
 		log.Fatal(err)
