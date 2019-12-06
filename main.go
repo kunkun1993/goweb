@@ -8,7 +8,7 @@ import (
 
 func main() {
 	app := iris.New()
-	app.StaticServe("./public", "/")
+	app.HandleDir("/", "./public")
 	tmpl := iris.HTML("./views", ".html")
 	tmpl.Layout("shared/layout.html")
 	tmpl.Reload(true)
