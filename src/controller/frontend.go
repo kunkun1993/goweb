@@ -18,8 +18,7 @@ import (
 func Index(ctx iris.Context) {
 	result, err := access.Index()
 
-	fmt.Println(result)
-	os.Exit(1)
+	log.Fatal(result)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -1,10 +1,8 @@
 package access
 
 import (
-	"fmt"
 	"iissy.com/src/models"
 	"iissy.com/src/utils"
-	"os"
 )
 
 // Index is yes.
@@ -22,7 +20,5 @@ func Index() (*models.Course, error) {
 	}
 
 	list.Close()
-	fmt.Println(fmt.Sprintf("%+v",course))
-	os.Exit(3)
 	return &course, nil
 }
