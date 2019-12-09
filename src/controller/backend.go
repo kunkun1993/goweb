@@ -241,3 +241,36 @@ func Mappingpost(ctx iris.Context) {
 
 	ctx.JSON(msg)
 }
+
+// Postclan 添加工会
+func Postclan(ctx iris.Context) {
+	var msg models.Uploador
+	msg.Success = false
+
+	id, _ := strconv.Atoi(ctx.FormValue("Clan_id"))
+	Clan := models.Clan{
+		Clan_id:         id,
+		Clan_name:    ctx.FormValue("Clan_name"),
+		Description:    ctx.FormValue("Description")}
+
+	result, err := access.PostClan(Clan)
+	if err != nil {
+		log.Fatal(err)
+	}
+	msg.Success = result
+
+	ctx.JSON(msg)
+}
+
+
+func Clanlist(ctx iris.Context) {
+	id, _ := strconv.Atoi(ctx.Params().Get("clan_id"))
+	size, _ := strconv.Atoi(ctx.Params().Get("size"))
+	page, _ := strconv.Atoi(ctx.Params().Get("page"))
+	result, err := access.ClanList(id, page, size)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	ctx.JSON(result)
+}

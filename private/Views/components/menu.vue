@@ -18,6 +18,7 @@
             <li :class="{active: (currentIndex == 8)}"><router-link to="/main/account/15/1">用户列表</router-link></li>
             <li :class="{active: (currentIndex == 9)}"><router-link to="/main/role/15/1">角色管理</router-link></li>
             <li :class="{active: (currentIndex == 10)}"><router-link to="/main/function/15/1">权限管理</router-link></li>
+            <li :class="{active: (currentIndex == 10)}"><router-link to="/main/clan/15/1">工会</router-link></li>
         </ul>
     </div>
 </template>
