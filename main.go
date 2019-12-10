@@ -61,8 +61,6 @@ func main() {
 	{
 		clan.Post("/post", controller.BasicAuth(controller.Postclan))
 		clan.Post("/list/{size}/{page}", controller.BasicAuth(controller.Clanlist))
-		clan.Get("/get/{id}", controller.BasicAuth(controller.Getclan))
-		clan.Get("/delete/{id}", controller.BasicAuth(controller.Delclan))
 	}
 
 	app.Run(iris.Addr(":80"))
