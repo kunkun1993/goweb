@@ -41,7 +41,7 @@ func PostClan(clan models.Clan) (bool,error) {
 		result, err = res.RowsAffected()
 		utils.CheckErr(err)
 	} else {
-		res, err := db.Exec("insert Roles set RoleName=?,Status=?", role.RoleName, role.Status)
+		res, err := db.Exec("update clans set clan_name=?,Description=? where id=?", clan.Clan_name, clan.Description, clan.Clan_id)
 		utils.CheckErr(err)
 		result, err = res.RowsAffected()
 		utils.CheckErr(err)
