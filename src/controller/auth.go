@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"reflect"
@@ -39,6 +40,7 @@ func BasicAuth(h context.Handler) context.Handler {
 			name = strings.ToLower(name[index+1:])
 
 			_, roleid, _ := utils.GetUser(ctx)
+			fmt.Println(roleid)
 			funclist, err := memo.Get(roleid)
 			if err != nil {
 				log.Print(err)
