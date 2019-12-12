@@ -42,6 +42,7 @@ func BasicAuth(h context.Handler) context.Handler {
 			_, roleid, _ := utils.GetUser(ctx)
 			fmt.Println(roleid)
 			funclist, err := memo.Get(roleid)
+			fmt.Println(funclist)
 			if err != nil {
 				log.Print(err)
 			}
