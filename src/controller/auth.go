@@ -20,6 +20,7 @@ import (
 var memo *cache.Memo
 
 func init() {
+	fmt.Println(2222111)
 	memo = cache.New(roleGetFunction)
 	return
 }
