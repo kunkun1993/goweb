@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"reflect"
@@ -20,7 +19,6 @@ import (
 var memo *cache.Memo
 
 func init() {
-	fmt.Println(2222111)
 	memo = cache.New(roleGetFunction)
 	return
 }
@@ -41,9 +39,7 @@ func BasicAuth(h context.Handler) context.Handler {
 			name = strings.ToLower(name[index+1:])
 
 			_, roleid, _ := utils.GetUser(ctx)
-			fmt.Println(roleid)
 			funclist, err := memo.Get(roleid)
-			fmt.Println(funclist)
 			if err != nil {
 				log.Print(err)
 			}

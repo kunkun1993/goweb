@@ -38,7 +38,6 @@ type Memo struct {
 // New 是初始化函数，当缓存不存在时，这个传入的函数用来向数据源取数据
 func New(f Func) *Memo {
 	memo := &Memo{requests: make(chan request)}
-	fmt.Println("New")
 	go memo.server(f)
 	return memo
 }
@@ -63,7 +62,6 @@ func (memo *Memo) Close() {
 // 一个是将缓存数据发送到request结构体的response通道，与Get方法的接受通道对应
 func (memo *Memo) server(f Func) {
 	cache := make(map[int]*entry)
-	fmt.Println("server")
 	for req := range memo.requests {
 		e := cache[req.key]
 		if e == nil {
@@ -79,14 +77,11 @@ func (memo *Memo) server(f Func) {
 // 从数据源取数据，取完后关闭通道，于是这个通道将只允许接收数据，不允许发送数据
 func (e *entry) call(f Func, key int) {
 	e.res.value, e.res.err = f(key)
-	fmt.Println("call")
 	close(e.ready)
 }
 
 // 将缓存数据发送到request结构体的response通道
 func (e *entry) deliver(response chan<- result) {
-	fmt.Println("deliver")
 	<-e.ready
 	response <- e.res
-	fmt.Println("deliver--end")
 }
