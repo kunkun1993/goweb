@@ -1,6 +1,9 @@
 package cache
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 // Func 是一个函数类型
 // 从数据源取数据的函数就必须符合这个函数类型的签名
@@ -63,9 +66,10 @@ func (memo *Memo) Close() {
 func (memo *Memo) server(f Func) {
 	cache := make(map[int]*entry)
 	for req := range memo.requests {
+		fmt.Println(req.key)
+		time.Sleep(time.Millisecond * 50000)
 		e := cache[req.key]
 		if e == nil {
-			fmt.Println("server--if")
 			e = &entry{ready: make(chan struct{})}
 			cache[req.key] = e
 			go e.call(f, req.key)
