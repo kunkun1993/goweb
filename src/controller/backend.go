@@ -55,9 +55,6 @@ func Postarticle(ctx iris.Context) {
 
 // Articlelist 文章列表
 func Articlelist(ctx iris.Context) {
-	fmt.Println(1111)
-	//panic(222)
-	log.Fatal(333)
 	id, _, _ := utils.GetUser(ctx)
 	size, _ := strconv.Atoi(ctx.Params().Get("size"))
 	page, _ := strconv.Atoi(ctx.Params().Get("page"))
@@ -65,7 +62,7 @@ func Articlelist(ctx iris.Context) {
 	if err != nil {
 		log.Fatal(err)
 	}
-
+	fmt.Println(4444)
 	ctx.JSON(result)
 }
 

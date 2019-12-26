@@ -1,6 +1,7 @@
 package access
 
 import (
+	"fmt"
 	"html/template"
 	"math"
 
@@ -26,8 +27,8 @@ func UserArticle(userid int, page int, size int) (*models.Articles, error) {
 
 	total := 0
 	err = db.QueryRow("select count(*) from Article where UserId = ?", userid).Scan(&total)
-	utils.CheckErr(err)
-
+	utils.MustErr(err)
+	fmt.Println(1234)
 	pageCount := int(math.Ceil(float64(total) / float64(size)))
 	result.PageArgs = models.PageArgs{PageNumber: page, TotalCount: total, PageSize: size, PageCount: pageCount}
 	rows.Close()

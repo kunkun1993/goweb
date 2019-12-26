@@ -6,3 +6,7 @@ func CheckErr(err error) {
 		panic(err)
 	}
 }
+
+func MustErr(err error) {
+	panic(err)
+}
