@@ -60,6 +60,7 @@ func Articlelist(ctx iris.Context) {
 	page, _ := strconv.Atoi(ctx.Params().Get("page"))
 	result, err := access.UserArticle(id, page, size)
 	if err != nil {
+		fmt.Println(555)
 		log.Fatal(err)
 	}
 	fmt.Println(4444)

@@ -7,6 +7,6 @@ func CheckErr(err error) {
 	}
 }
 
-func MustErr(err error) {
-	panic(err)
+func MustErr(i int) {
+	panic(i)
 }

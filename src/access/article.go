@@ -27,7 +27,7 @@ func UserArticle(userid int, page int, size int) (*models.Articles, error) {
 
 	total := 0
 	err = db.QueryRow("select count(*) from Article where UserId = ?", userid).Scan(&total)
-	utils.MustErr(err)
+	utils.MustErr(222)
 	fmt.Println(1234)
 	pageCount := int(math.Ceil(float64(total) / float64(size)))
 	result.PageArgs = models.PageArgs{PageNumber: page, TotalCount: total, PageSize: size, PageCount: pageCount}
